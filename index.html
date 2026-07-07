@@ -259,8 +259,11 @@
 
   /* ---------- hero ---------- */
   .hero {
-    padding: 64px 0 40px;
+    padding: 0 0 40px;
     position: relative;
+  }
+  @media (max-width: 900px) {
+    .hero { padding: 0 0 24px; }
   }
   .hero-grid {
     display: grid;
@@ -459,10 +462,6 @@
     align-items: center;
     margin-top: 40px;
   }
-  @media (max-width: 800px) {
-    .criteria-compare { grid-template-columns: 1fr; }
-    .criteria-arrow { transform: rotate(90deg); }
-  }
   .criteria-card {
     background: var(--surface);
     border: 1px solid var(--line);
@@ -496,6 +495,13 @@
   }
   .criteria-card li::before { content: '·'; position: absolute; left: 0; color: var(--ink-faint); font-weight: 800; }
   .criteria-arrow { font-size: 28px; color: var(--ink-faint); text-align: center; }
+  .criteria-arrow .arrow-v { display: none; }
+  @media (max-width: 800px) {
+    .criteria-compare { grid-template-columns: 1fr; }
+    .criteria-arrow { width: 36px; height: 36px; line-height: 36px; margin: 0 auto; }
+    .criteria-arrow .arrow-h { display: none; }
+    .criteria-arrow .arrow-v { display: inline; }
+  }
 
   /* ---------- feature blocks ---------- */
   .feature-block {
@@ -945,7 +951,7 @@
           <li>텔레마케팅관리</li>
         </ul>
       </div>
-      <div class="criteria-arrow reveal">→</div>
+      <div class="criteria-arrow reveal"><span class="arrow-h">→</span><span class="arrow-v">↓</span></div>
       <div class="criteria-card new reveal">
         <span class="criteria-badge">2023~2028년 기준 · 지금</span>
         <h3>비대면매체 고객관리 실무 · 13개 대과목</h3>
