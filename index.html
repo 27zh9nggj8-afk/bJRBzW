@@ -446,6 +446,52 @@
     line-height: 1.65;
   }
 
+  /* ---------- criteria compare ---------- */
+  .criteria-compare {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 20px;
+    align-items: center;
+    margin-top: 40px;
+  }
+  @media (max-width: 800px) {
+    .criteria-compare { grid-template-columns: 1fr; }
+    .criteria-arrow { transform: rotate(90deg); }
+  }
+  .criteria-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 26px;
+  }
+  .criteria-card.old { opacity: 0.72; }
+  .criteria-card.new { border-color: var(--blue); box-shadow: var(--shadow); }
+  .criteria-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+  .criteria-card.old .criteria-badge { background: var(--surface-2); color: var(--ink-faint); }
+  .criteria-card.new .criteria-badge { background: var(--blue-tint); color: var(--blue); }
+  .criteria-card h3 {
+    font-size: 18.5px;
+    font-weight: 800;
+    margin-top: 14px;
+    letter-spacing: -0.01em;
+  }
+  .criteria-card ul { margin: 14px 0 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .criteria-card li {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    padding-left: 14px;
+    position: relative;
+  }
+  .criteria-card li::before { content: '·'; position: absolute; left: 0; color: var(--ink-faint); font-weight: 800; }
+  .criteria-arrow { font-size: 28px; color: var(--ink-faint); text-align: center; }
+
   /* ---------- feature blocks ---------- */
   .feature-block {
     display: grid;
@@ -811,6 +857,7 @@
 <nav class="rail" id="rail">
   <button class="rail-item" data-target="stage-hero"><span class="rail-dot"></span><span class="rail-label">도입</span></button>
   <button class="rail-item" data-target="stage-pain"><span class="rail-dot"></span><span class="rail-label">탐색</span></button>
+  <button class="rail-item" data-target="stage-criteria"><span class="rail-dot"></span><span class="rail-label">반론처리</span></button>
   <button class="rail-item" data-target="stage-feature"><span class="rail-dot"></span><span class="rail-label">특징·혜택 제시</span></button>
   <button class="rail-item" data-target="stage-proof"><span class="rail-dot"></span><span class="rail-label">확신·보증</span></button>
   <button class="rail-item" data-target="stage-price"><span class="rail-dot"></span><span class="rail-label">접근 계약</span></button>
@@ -876,9 +923,43 @@
   </div>
 </section>
 
+<section class="stage" id="stage-criteria">
+  <div class="wrap">
+    <span class="eyebrow"><span class="stage-no">STAGE 03</span>반론처리</span>
+    <h2 class="section-title">2023년, 출제기준이 완전히 바뀌었어요</h2>
+    <p class="section-lede">텔레마케팅관리사 실기는 2023년에 과목명과 출제범위가 전면 개편됐고, 이 기준이 2026~2028년 최신 고시까지 그대로 이어지고 있어요. 지금 시험은 <b>2023년 이후 기준</b>으로 공부해야 해요.</p>
+    <div class="criteria-compare">
+      <div class="criteria-card old reveal">
+        <span class="criteria-badge">~2022년 기준</span>
+        <h3>텔레마케팅 실무 · 5개 대과목</h3>
+        <ul>
+          <li>인·아웃바운드 마케팅</li>
+          <li>고객관리(CRM)</li>
+          <li>마케팅 전략기획</li>
+          <li>시장조사</li>
+          <li>텔레마케팅관리</li>
+        </ul>
+      </div>
+      <div class="criteria-arrow reveal">→</div>
+      <div class="criteria-card new reveal">
+        <span class="criteria-badge">2023~2028년 기준 · 지금</span>
+        <h3>비대면매체 고객관리 실무 · 13개 대과목</h3>
+        <ul>
+          <li>고객분석과 데이터관리</li>
+          <li>통신판매 시스템운용 · 고객관계관리(VOC)</li>
+          <li>영업 고객불만관리 · 고객상담</li>
+          <li>통신판매 성과관리 · 조직운영관리</li>
+          <li>통신판매 환경분석 · STP·마케팅믹스전략</li>
+        </ul>
+      </div>
+    </div>
+    <p class="callout reveal" style="margin-top:28px;">합격노트는 이 출제기준 고시를 직접 대조해서, <b>2023~2026년 범위</b>에 맞춰 13개 대과목을 빠짐없이 채워 넣었어요.</p>
+  </div>
+</section>
+
 <section class="stage" id="stage-feature">
   <div class="wrap">
-    <span class="eyebrow"><span class="stage-no">STAGE 03</span>특징·혜택 제시</span>
+    <span class="eyebrow"><span class="stage-no">STAGE 04</span>특징·혜택 제시</span>
     <h2 class="section-title">3종이 서로 다른 역할을 합니다</h2>
     <p class="section-lede">개념은 노트로 이해하고, 손은 기출연습지로 익히고, 자투리 시간은 앱으로 채우는 구조예요. 하나만 있어도 되지만, 셋이 맞물릴 때 제일 빠릅니다.</p>
 
@@ -961,7 +1042,7 @@
 
 <section class="stage" id="stage-proof">
   <div class="wrap">
-    <span class="eyebrow"><span class="stage-no">STAGE 04</span>확신·보증</span>
+    <span class="eyebrow"><span class="stage-no">STAGE 05</span>확신·보증</span>
     <h2 class="section-title">앱과 책이 같은 문제를 가리켜요</h2>
     <p class="section-lede">기출연습 PDF의 19번 문항과 앱 문제풀이의 첫 문제가 정확히 같은 문장이에요. 세 자료가 따로 만들어진 게 아니라 하나의 기출 데이터에서 나왔다는 뜻입니다.</p>
     <div class="proof-grid">
@@ -980,7 +1061,7 @@
 
 <section class="stage" id="stage-price">
   <div class="wrap" style="text-align:center;">
-    <span class="eyebrow"><span class="stage-no">STAGE 05</span>접근 계약</span>
+    <span class="eyebrow"><span class="stage-no">STAGE 06</span>접근 계약</span>
     <h2 class="section-title">3종 묶음, 부담 없이 시작하세요</h2>
     <p class="section-lede" style="margin-left:auto;margin-right:auto;">따로 사면 각각의 가치가 있지만, 묶어서 준비할 때 제일 효율적이에요.</p>
 
@@ -1006,7 +1087,7 @@
 
 <section class="stage" id="stage-faq">
   <div class="wrap">
-    <span class="eyebrow"><span class="stage-no">STAGE 06</span>연결판매</span>
+    <span class="eyebrow"><span class="stage-no">STAGE 07</span>연결판매</span>
     <h2 class="section-title">궁금한 점, 미리 답해둘게요</h2>
     <div class="faq-list">
       <div class="faq-item">
@@ -1051,7 +1132,7 @@
   revealEls.forEach(el => io.observe(el));
 
   // rail active state
-  const stages = ['stage-hero','stage-pain','stage-feature','stage-proof','stage-price','stage-faq'];
+  const stages = ['stage-hero','stage-pain','stage-criteria','stage-feature','stage-proof','stage-price','stage-faq'];
   const railItems = document.querySelectorAll('.rail-item');
   railItems.forEach(item => {
     item.addEventListener('click', () => {
