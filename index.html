@@ -108,24 +108,6 @@
     padding: 0 24px;
   }
 
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12.5px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--blue);
-    text-transform: uppercase;
-  }
-  .eyebrow .stage-no {
-    font-variant-numeric: tabular-nums;
-    background: var(--blue-tint);
-    border-radius: 6px;
-    padding: 2px 7px;
-    letter-spacing: 0;
-  }
-
   h2.section-title {
     font-size: clamp(26px, 4vw, 38px);
     font-weight: 800;
@@ -140,62 +122,6 @@
     max-width: 62ch;
     margin-top: 14px;
     line-height: 1.75;
-  }
-
-  /* ---------- progress rail ---------- */
-  .rail {
-    position: fixed;
-    left: 28px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 40;
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-    align-items: flex-start;
-  }
-  .rail-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 0;
-    font-family: inherit;
-  }
-  .rail-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--ink-faint);
-    opacity: 0.5;
-    transition: all .3s ease;
-    flex-shrink: 0;
-  }
-  .rail-label {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    color: var(--ink-faint);
-    opacity: 0;
-    transform: translateX(-6px);
-    transition: all .3s ease;
-    white-space: nowrap;
-  }
-  .rail-item.active .rail-dot {
-    background: var(--blue);
-    opacity: 1;
-    transform: scale(1.5);
-  }
-  .rail-item.active .rail-label {
-    color: var(--blue);
-    opacity: 1;
-    transform: translateX(0);
-  }
-  .rail-item:hover .rail-label { opacity: 1; transform: translateX(0); color: var(--ink-soft); }
-  @media (max-width: 980px) {
-    .rail { display: none; }
   }
 
   .mobile-progress {
@@ -410,100 +336,12 @@
 
   /* ---------- section shell ---------- */
   section.stage {
-    padding: 96px 0;
+    padding: 120px 0;
     border-top: 1px solid var(--line);
   }
   section.stage:first-of-type { border-top: none; }
-
-  /* ---------- pain / callout ---------- */
-  .callout {
-    background: var(--gold-bg);
-    border: 1px solid var(--gold-border);
-    border-left: 4px solid var(--gold);
-    border-radius: var(--radius-sm);
-    padding: 22px 24px;
-    font-size: 15.5px;
-    color: var(--ink);
-    line-height: 1.7;
-  }
-  .callout b { color: var(--gold); }
-
-  .pain-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    margin-top: 40px;
-  }
-  @media (max-width: 800px) {
-    .pain-grid { grid-template-columns: 1fr; }
-  }
-  .pain-card {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    padding: 26px;
-  }
-  .pain-card .pain-icon { font-size: 26px; }
-  .pain-card h3 {
-    font-size: 17px;
-    font-weight: 800;
-    margin-top: 14px;
-    letter-spacing: -0.01em;
-  }
-  .pain-card p {
-    font-size: 14.5px;
-    color: var(--ink-soft);
-    margin-top: 8px;
-    line-height: 1.65;
-  }
-
-  /* ---------- criteria compare ---------- */
-  .criteria-compare {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 20px;
-    align-items: center;
-    margin-top: 40px;
-  }
-  .criteria-card {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    padding: 26px;
-  }
-  .criteria-card.old { opacity: 0.72; }
-  .criteria-card.new { border-color: var(--blue); box-shadow: var(--shadow); }
-  .criteria-badge {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 800;
-    padding: 4px 10px;
-    border-radius: 100px;
-  }
-  .criteria-card.old .criteria-badge { background: var(--surface-2); color: var(--ink-faint); }
-  .criteria-card.new .criteria-badge { background: var(--blue-tint); color: var(--blue); }
-  .criteria-card h3 {
-    font-size: 18.5px;
-    font-weight: 800;
-    margin-top: 14px;
-    letter-spacing: -0.01em;
-  }
-  .criteria-card ul { margin: 14px 0 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
-  .criteria-card li {
-    font-size: 14.5px;
-    color: var(--ink-soft);
-    line-height: 1.6;
-    padding-left: 14px;
-    position: relative;
-  }
-  .criteria-card li::before { content: '·'; position: absolute; left: 0; color: var(--ink-faint); font-weight: 800; }
-  .criteria-arrow { font-size: 28px; color: var(--ink-faint); text-align: center; }
-  .criteria-arrow .arrow-v { display: none; }
-  @media (max-width: 800px) {
-    .criteria-compare { grid-template-columns: 1fr; }
-    .criteria-arrow { width: 36px; height: 36px; line-height: 36px; margin: 0 auto; }
-    .criteria-arrow .arrow-h { display: none; }
-    .criteria-arrow .arrow-v { display: inline; }
+  @media (max-width: 900px) {
+    section.stage { padding: 84px 0; }
   }
 
   /* ---------- feature blocks ---------- */
@@ -677,50 +515,6 @@
     font-weight: 700;
   }
 
-  /* ---------- proof section ---------- */
-  .proof-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-    margin-top: 44px;
-    align-items: start;
-  }
-  @media (max-width: 800px) { .proof-grid { grid-template-columns: 1fr; } }
-  .proof-card {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    padding: 20px;
-    text-align: center;
-  }
-  .proof-card img {
-    border-radius: 8px;
-    border: 1px solid var(--line);
-  }
-  .proof-card .proof-label {
-    margin-top: 14px;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--ink-faint);
-  }
-  .proof-link-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    width: 40px; height: 40px;
-    color: var(--ink-faint);
-  }
-  .proof-note {
-    margin-top: 32px;
-    font-size: 14px;
-    color: var(--ink-soft);
-    background: var(--surface-2);
-    border-radius: var(--radius-sm);
-    padding: 18px 20px;
-    line-height: 1.7;
-  }
-
   /* ---------- pricing ---------- */
   .price-card {
     max-width: 560px;
@@ -824,7 +618,7 @@
     line-height: 1.7;
   }
   .faq-a-inner { padding-top: 12px; max-width: 65ch; }
-  .faq-item.open .faq-a { max-height: 240px; }
+  .faq-item.open .faq-a { max-height: 340px; }
 
   /* ---------- final cta ---------- */
   .final-cta {
@@ -868,16 +662,6 @@
 
 <div class="mobile-progress"><div class="mobile-progress-bar" id="mobileProgressBar"></div></div>
 
-<nav class="rail" id="rail">
-  <button class="rail-item" data-target="stage-hero"><span class="rail-dot"></span><span class="rail-label">도입</span></button>
-  <button class="rail-item" data-target="stage-pain"><span class="rail-dot"></span><span class="rail-label">탐색</span></button>
-  <button class="rail-item" data-target="stage-criteria"><span class="rail-dot"></span><span class="rail-label">반론처리</span></button>
-  <button class="rail-item" data-target="stage-feature"><span class="rail-dot"></span><span class="rail-label">특징·혜택 제시</span></button>
-  <button class="rail-item" data-target="stage-proof"><span class="rail-dot"></span><span class="rail-label">확신·보증</span></button>
-  <button class="rail-item" data-target="stage-price"><span class="rail-dot"></span><span class="rail-label">접근 계약</span></button>
-  <button class="rail-item" data-target="stage-faq"><span class="rail-dot"></span><span class="rail-label">연결판매</span></button>
-</nav>
-
 <div class="topnav">
   <div class="topnav-inner">
     <div class="brand"><span class="brand-mark">☎</span>합격노트</div>
@@ -889,9 +673,8 @@
   <div class="wrap hero">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow"><span class="stage-no">STAGE 01</span>도입</span>
-        <h1 class="hero-title">서술형 실기, <em>이 노트 하나면</em><br>흔들리지 않아요</h1>
-        <p class="hero-sub">텔레마케팅관리사 실기, 기출 10회 250문항 복원 + 13단원 개념 해설서 + 손에 들고 다니는 문제풀이 앱까지. 시험 전 마지막 D-day를 이 3종으로 채우세요.</p>
+        <h1 class="hero-title">텔레마케팅 실기,<br><em>이 앱 하나면 완벽 커버</em></h1>
+        <p class="hero-sub">풀고, 이해하고, 외우기까지 — 실기 준비에 필요한 전부.</p>
         <div class="hero-stats">
           <span class="stat-chip">기출 <b>10회 · 250문항</b></span>
           <span class="stat-chip">개념 <b>13단원 + 부록</b></span>
@@ -899,7 +682,7 @@
         </div>
         <div class="hero-actions">
           <a class="cta-primary" href="https://open.kakao.com/o/sfMySMxi" target="_blank" rel="noopener">카카오톡 오픈채팅으로 구매하기</a>
-          <span class="cta-hint">문의 → 안내 → 바로 이용 (회원가입 없음)</span>
+          <span class="cta-hint">문의 → 안내 → 바로 이용</span>
         </div>
       </div>
       <div class="hero-visual">
@@ -912,70 +695,10 @@
   </div>
 </section>
 
-<section class="stage" id="stage-pain">
-  <div class="wrap">
-    <span class="eyebrow"><span class="stage-no">STAGE 02</span>탐색</span>
-    <h2 class="section-title">필답형은 "아는 것"과 "쓰는 것"이 달라요</h2>
-    <p class="section-lede">객관식이 아니라 서술형이라, 개념을 어렴풋이 아는 정도로는 답안지 앞에서 손이 멈춥니다. 실기가 유독 막막하게 느껴지는 이유는 따로 있어요.</p>
-    <div class="pain-grid">
-      <div class="pain-card reveal">
-        <div class="pain-icon">📝</div>
-        <h3>정답이 공개되지 않는 시험</h3>
-        <p>큐넷은 문제 유형만 공개할 뿐, 상세 해설과 모범답안은 어디에도 없어요. 결국 각자 정리하고 확인해가며 준비할 수밖에 없는 시험입니다.</p>
-      </div>
-      <div class="pain-card reveal">
-        <div class="pain-icon">📚</div>
-        <h3>13단원, 범위가 넓다</h3>
-        <p>상담·CRM·데이터분석·조직관리·마케팅믹스까지 — 어디를 얼마나 봐야 할지 감이 안 잡히면 결국 다 봐야 할 것 같은 불안만 남아요.</p>
-      </div>
-      <div class="pain-card reveal">
-        <div class="pain-icon">⏳</div>
-        <h3>시험은 다가오는데</h3>
-        <p>요약만 읽다 보면 실제로 "써보는" 연습이 부족한 채로 시험장에 들어가게 됩니다. 감이 아니라 손에 익어야 하는 시험이에요.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="stage" id="stage-criteria">
-  <div class="wrap">
-    <span class="eyebrow"><span class="stage-no">STAGE 03</span>반론처리</span>
-    <h2 class="section-title">2023년, 출제기준이 완전히 바뀌었어요</h2>
-    <p class="section-lede">텔레마케팅관리사 실기는 2023년에 과목명과 출제범위가 전면 개편됐고, 이 기준이 2026~2028년 최신 고시까지 그대로 이어지고 있어요. 지금 시험은 <b>2023년 이후 기준</b>으로 공부해야 해요.</p>
-    <div class="criteria-compare">
-      <div class="criteria-card old reveal">
-        <span class="criteria-badge">~2022년 기준</span>
-        <h3>텔레마케팅 실무 · 5개 대과목</h3>
-        <ul>
-          <li>인·아웃바운드 마케팅</li>
-          <li>고객관리(CRM)</li>
-          <li>마케팅 전략기획</li>
-          <li>시장조사</li>
-          <li>텔레마케팅관리</li>
-        </ul>
-      </div>
-      <div class="criteria-arrow reveal"><span class="arrow-h">→</span><span class="arrow-v">↓</span></div>
-      <div class="criteria-card new reveal">
-        <span class="criteria-badge">2023~2028년 기준 · 지금</span>
-        <h3>비대면매체 고객관리 실무 · 13개 대과목</h3>
-        <ul>
-          <li>고객분석과 데이터관리</li>
-          <li>통신판매 시스템운용 · 고객관계관리(VOC)</li>
-          <li>영업 고객불만관리 · 고객상담</li>
-          <li>통신판매 성과관리 · 조직운영관리</li>
-          <li>통신판매 환경분석 · STP·마케팅믹스전략</li>
-        </ul>
-      </div>
-    </div>
-    <p class="callout reveal" style="margin-top:28px;">합격노트는 이 출제기준 고시를 직접 대조해서, <b>2023~2026년 범위</b>에 맞춰 13개 대과목을 빠짐없이 채워 넣었어요.</p>
-  </div>
-</section>
-
 <section class="stage" id="stage-feature">
   <div class="wrap">
-    <span class="eyebrow"><span class="stage-no">STAGE 04</span>특징·혜택 제시</span>
     <h2 class="section-title">3종이 서로 다른 역할을 합니다</h2>
-    <p class="section-lede">개념은 노트로 이해하고, 손은 기출연습지로 익히고, 자투리 시간은 앱으로 채우는 구조예요. 하나만 있어도 되지만, 셋이 맞물릴 때 제일 빠릅니다.</p>
+    <p class="section-lede">개념은 노트로, 손풀이는 연습지로, 반복은 앱으로.</p>
 
     <div class="feature-block reveal">
       <div class="feature-visual">
@@ -999,13 +722,7 @@
       <div class="feature-text">
         <span class="feature-tag">WEB APP</span>
         <h3>합격노트 앱 — 진도·문제·암기를 한 화면에서</h3>
-        <p>D-day와 진도율을 홈에서 바로 확인하고, 요약·문제풀이·암기모드·오답노트를 이동하며 공부합니다. 로그인 하나로 휴대폰·태블릿·컴퓨터 어디서든 학습 기록이 그대로 이어져요.</p>
-        <ul class="feature-list">
-          <li>기출 10회 250문항 + 기본개념 25문항, 전체 랜덤 섞기 지원</li>
-          <li>틀린 문제는 자동으로 오답 노트에 쌓여 재복습</li>
-          <li>순서·헷갈리는 개념·약자를 카드로 넘기는 암기 모드</li>
-          <li>로그인하면 진도·오답 기록이 모든 기기에서 실시간 연동</li>
-        </ul>
+        <p>기출 275문항 풀이 · 요약 · 암기모드 · 오답노트. 로그인하면 어느 기기에서든 기록이 이어져요.</p>
       </div>
     </div>
 
@@ -1019,12 +736,7 @@
       <div class="feature-text">
         <span class="feature-tag">PDF · 24P</span>
         <h3>텔레마케팅 실기 공부노트 — 왜 그런지까지 이해하는 개념서</h3>
-        <p>13단원 + 부록을 단원마다 핵심개념 해설·비교표·기출 연결 태그로 정리했어요. 용어를 외우는 게 아니라 "왜 이렇게 부르는지" 이해하도록 썼습니다.</p>
-        <ul class="feature-list">
-          <li>문단 옆 <b style="color:var(--ink)">25-2·05</b> 같은 기출 태그로 실제 출제 회차 확인</li>
-          <li>★★★ 매 회차 · ★★ 자주 · ★ 가끔, 출제빈도 한눈에</li>
-          <li>기출 주제 10회분과 앱 요약정리를 함께 참고해 정리한 내용</li>
-        </ul>
+        <p>13단원 + 부록. 핵심개념 해설, 비교표, 기출 태그, 출제빈도(★)까지 담은 개념서.</p>
       </div>
     </div>
 
@@ -1044,41 +756,15 @@
       <div class="feature-text">
         <span class="feature-tag">PDF · 91P</span>
         <h3>기출연습 — 10회 250문항을 실전처럼</h3>
-        <p>2023~2026년 기출 10회분, 250문항을 필답형 그대로 옮겨 손으로 풀어보는 연습지예요. 회차 끝의 정답으로 바로 채점하고, 틀린 번호만 표시해 재풀이하세요.</p>
-        <ul class="feature-list">
-          <li>회당 25문항 · 실전 권장 풀이시간 90~120분</li>
-          <li>정답은 교재와 기출 자료를 함께 참고해 정리</li>
-          <li>공부노트의 단원 번호와 이어서 복습 가능</li>
-        </ul>
+        <p>2023~2026년 기출 10회 250문항, 필답형 그대로. 회차별 정답으로 바로 채점.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="stage" id="stage-proof">
-  <div class="wrap">
-    <span class="eyebrow"><span class="stage-no">STAGE 05</span>확신·보증</span>
-    <h2 class="section-title">앱과 책이 같은 문제를 가리켜요</h2>
-    <p class="section-lede">기출연습 PDF의 19번 문항과 앱 문제풀이의 첫 문제가 정확히 같은 문장이에요. 세 자료가 따로 만들어진 게 아니라 하나의 기출 데이터에서 나왔다는 뜻입니다.</p>
-    <div class="proof-grid">
-      <div class="proof-card reveal">
-        <img src="data:image/webp;base64,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" alt="기출연습 PDF 19번 문항 — 데이터 분석기법을 쓰시오">
-        <div class="proof-label">기출연습 PDF · 19번 문항</div>
-      </div>
-      <div class="proof-card reveal">
-        <img src="data:image/webp;base64,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" alt="앱 문제풀이 화면 — 같은 문항이 CRM 세트 1문제로 등장">
-        <div class="proof-label">합격노트 앱 · 문제풀이 화면</div>
-      </div>
-    </div>
-    <p class="proof-note callout">본 자료는 기출 주제와 출제 경향을 바탕으로 개인이 재구성한 <b>학습 참고 자료</b>예요. 큐넷이나 어떤 공인기관과도 관련이 없으며, 실제 출제 문제·정답과는 다를 수 있습니다. 정확한 시험 정보는 반드시 <b>큐넷(Q-net)</b> 공고에서 확인해 주세요. 이렇게 미리 밝히는 이유는, 이 자료를 오래 믿고 쓰셨으면 하기 때문이에요.</p>
   </div>
 </section>
 
 <section class="stage" id="stage-price">
   <div class="wrap" style="text-align:center;">
-    <span class="eyebrow"><span class="stage-no">STAGE 06</span>접근 계약</span>
-    <h2 class="section-title">3종 묶음, 부담 없이 시작하세요</h2>
-    <p class="section-lede" style="margin-left:auto;margin-right:auto;">따로 사면 각각의 가치가 있지만, 묶어서 준비할 때 제일 효율적이에요.</p>
+    <h2 class="section-title">3종 묶음, 한 번 결제로 평생 이용</h2>
 
     <div class="price-card reveal">
       <div class="price-eyebrow">합격노트 3종 세트</div>
@@ -1102,29 +788,44 @@
 
 <section class="stage" id="stage-faq">
   <div class="wrap">
-    <span class="eyebrow"><span class="stage-no">STAGE 07</span>연결판매</span>
     <h2 class="section-title">궁금한 점, 미리 답해둘게요</h2>
     <div class="faq-list">
       <div class="faq-item">
+        <div class="faq-q">결제는 어떻게 진행되나요?</div>
+        <div class="faq-a"><div class="faq-a-inner">카카오톡 오픈채팅으로 문의를 남기면 결제 방법과 이용 링크를 바로 안내드려요. 카카오페이 결제 연동은 준비 중이에요.</div></div>
+      </div>
+      <div class="faq-item">
         <div class="faq-q">로그인이나 회원가입이 필요한가요?</div>
-        <div class="faq-a"><div class="faq-a-inner">선택이에요. 로그인하면 진도·오답 기록이 클라우드에 저장되어 휴대폰·태블릿·컴퓨터 등 모든 기기에서 이어서 공부할 수 있어요. 로그인 없이도 바로 이용할 수 있는데, 이때는 기록이 그 기기(브라우저)에만 저장돼요.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">선택이에요. 로그인하면 진도·오답 기록이 휴대폰·태블릿·컴퓨터 모든 기기에서 연동되고, 로그인 없이 쓰면 기록이 그 기기에만 저장돼요.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">실제 시험 문제와 똑같이 나오나요?</div>
         <div class="faq-a"><div class="faq-a-inner">기출 주제와 유형을 바탕으로 개인이 정리한 학습 참고 자료예요. 큐넷 등 공인기관과는 관련이 없고, 실제 시험 문제·정답과 다를 수 있어요. 정확한 내용은 반드시 큐넷 공고를 확인해 주세요.</div></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">결제는 어떻게 진행되나요?</div>
-        <div class="faq-a"><div class="faq-a-inner">지금은 카카오톡 오픈채팅으로 문의를 남겨주시면 결제 방법과 이용 링크를 바로 안내드려요. 카카오페이 결제 연동은 준비 중입니다.</div></div>
+        <div class="faq-q">2023년에 출제기준이 바뀌었다던데요?</div>
+        <div class="faq-a"><div class="faq-a-inner">네. 2023년에 실기가 "텔레마케팅 실무(5개 대과목)"에서 "비대면매체 고객관리 실무(13개 대과목)"로 전면 개편됐고, 이 기준이 2026~2028년 고시까지 그대로 이어져요. 합격노트 3종은 전부 2023년 이후 기준에 맞춰 만들었어요.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">문제 수와 구성은 어떻게 되나요?</div>
+        <div class="faq-a"><div class="faq-a-inner">앱에는 기출 10회 250문항 + 기본개념 25문항이 들어 있고, 전체 랜덤 섞기·오답노트 자동 저장·암기 카드 모드를 지원해요. 기출연습 PDF는 회당 25문항, 실전 권장 풀이시간은 90~120분이에요.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">앱과 PDF 내용이 서로 연결되나요?</div>
+        <div class="faq-a"><div class="faq-a-inner">네, 세 자료가 하나의 기출 데이터에서 나왔어요. 기출연습 PDF의 문항이 앱 문제풀이에도 같은 문장으로 들어 있고, 공부노트의 단원 번호·기출 태그로 이어서 볼 수 있어요.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">정답이나 해설은 원래 공개되지 않나요?</div>
+        <div class="faq-a"><div class="faq-a-inner">네, 큐넷은 문제 유형만 공개하고 상세 해설·모범답안은 공개하지 않아요. 그래서 기출 주제를 바탕으로 문제·정답·해설을 직접 재구성해 정리했어요.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">PDF와 앱, 따로 봐도 되나요?</div>
-        <div class="faq-a"><div class="faq-a-inner">네. 다만 개념(공부노트) → 손풀이(기출연습) → 자투리 시간 반복(앱) 순서로 같이 쓰시면 가장 효율적으로 설계돼 있어요.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">네. 다만 개념(공부노트) → 손풀이(기출연습) → 자투리 시간 반복(앱) 순서로 같이 쓰면 가장 효율적이에요.</div></div>
       </div>
     </div>
 
     <div class="final-cta reveal">
-      <h2>D-day 전, 이 노트로 정리하세요</h2>
+      <h2>텔레마케팅 실기, 이걸로 끝</h2>
       <p>기출 250문항 + 개념 13단원 + 문제풀이 앱, 7,900원 · 평생 이용</p>
       <div class="hero-actions" style="justify-content:center; margin-top:26px;">
         <a class="cta-primary" href="https://open.kakao.com/o/sfMySMxi" target="_blank" rel="noopener">카카오톡 오픈채팅으로 구매하기</a>
@@ -1145,27 +846,6 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.15 });
   revealEls.forEach(el => io.observe(el));
-
-  // rail active state
-  const stages = ['stage-hero','stage-pain','stage-criteria','stage-feature','stage-proof','stage-price','stage-faq'];
-  const railItems = document.querySelectorAll('.rail-item');
-  railItems.forEach(item => {
-    item.addEventListener('click', () => {
-      const target = document.getElementById(item.dataset.target);
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
-  const stageObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const idx = stages.indexOf(entry.target.id);
-      if (idx === -1) return;
-      if (entry.isIntersecting) {
-        railItems.forEach(r => r.classList.remove('active'));
-        if (railItems[idx]) railItems[idx].classList.add('active');
-      }
-    });
-  }, { threshold: 0.5 });
-  stages.forEach(id => { const el = document.getElementById(id); if (el) stageObserver.observe(el); });
 
   // mobile top progress bar
   const bar = document.getElementById('mobileProgressBar');
