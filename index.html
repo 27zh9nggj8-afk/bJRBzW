@@ -881,7 +881,7 @@
 <div class="topnav">
   <div class="topnav-inner">
     <div class="brand"><span class="brand-mark">☎</span>합격노트</div>
-    <a class="nav-cta js-pay" href="#" role="button">시작하기</a>
+    <a class="nav-cta" href="https://open.kakao.com/o/sfMySMxi" target="_blank" rel="noopener">카톡으로 구매 문의</a>
   </div>
 </div>
 
@@ -898,8 +898,8 @@
           <span class="stat-chip">출제빈도 <b>★★★ 표시</b></span>
         </div>
         <div class="hero-actions">
-          <a class="cta-primary js-pay" href="#" role="button">시작하기</a>
-          <span class="cta-hint">카카오페이 결제 → 합격노트 앱 바로 열림</span>
+          <a class="cta-primary" href="https://open.kakao.com/o/sfMySMxi" target="_blank" rel="noopener">카카오톡 오픈채팅으로 구매하기</a>
+          <span class="cta-hint">문의 → 안내 → 바로 이용 (회원가입 없음)</span>
         </div>
       </div>
       <div class="hero-visual">
@@ -1094,8 +1094,8 @@
           <div><div class="item-name">기출연습 (PDF 91p)</div><div class="item-desc">기출 10회 250문항 서술형 연습 + 정답</div></div>
         </div>
       </div>
-      <a class="price-cta js-pay" href="#" role="button">시작하기</a>
-      <div class="price-foot">결제가 끝나면 합격노트 페이지로 바로 이동해요 · 문의는 <a href="https://open.kakao.com/o/sfMySMxi" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">카카오톡 오픈채팅</a></div>
+      <a class="price-cta" href="https://open.kakao.com/o/sfMySMxi" target="_blank" rel="noopener">카카오톡 오픈채팅에서 구매하기</a>
+      <div class="price-foot">현재는 오픈채팅으로 문의·안내 후 전달드려요 · 카카오페이 결제는 준비 중입니다</div>
     </div>
   </div>
 </section>
@@ -1115,7 +1115,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q">결제는 어떻게 진행되나요?</div>
-        <div class="faq-a"><div class="faq-a-inner">카카오페이로 바로 결제할 수 있어요. 결제가 끝나면 합격노트 이용 페이지로 자동 이동해요. 궁금한 점은 <a href="https://open.kakao.com/o/sfMySMxi" target="_blank" rel="noopener">카카오톡 오픈채팅</a>으로 문의를 남겨주세요.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">지금은 카카오톡 오픈채팅으로 문의를 남겨주시면 결제 방법과 이용 링크를 바로 안내드려요. 카카오페이 결제 연동은 준비 중입니다.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">PDF와 앱, 따로 봐도 되나요?</div>
@@ -1127,7 +1127,7 @@
       <h2>D-day 전, 이 노트로 정리하세요</h2>
       <p>기출 250문항 + 개념 13단원 + 문제풀이 앱, 7,900원 · 평생 이용</p>
       <div class="hero-actions" style="justify-content:center; margin-top:26px;">
-        <a class="cta-primary js-pay" href="#" role="button">시작하기</a>
+        <a class="cta-primary" href="https://open.kakao.com/o/sfMySMxi" target="_blank" rel="noopener">카카오톡 오픈채팅으로 구매하기</a>
       </div>
     </div>
   </div>
@@ -1137,190 +1137,6 @@
   <div class="foot-brand">☎ 합격노트 · 텔레마케팅관리사 실기</div>
   <p class="disclaimer" style="margin-top:10px;">본 자료는 기출 주제를 바탕으로 재구성한 개인 학습 참고 자료이며, 특정 자격시험의 공식 교재·정답이 아닙니다. 큐넷 등 어떠한 공인기관과도 관련이 없으며, 실제 시험과 내용이 다를 수 있습니다. 정확한 시험 일정·공고는 큐넷(Q-net)에서 확인하세요.</p>
 </footer>
-
-<!-- 결제 모달 -->
-<style>
-  .pay-overlay {
-    position: fixed; inset: 0; z-index: 200;
-    background: rgba(20,23,28,0.55);
-    display: flex; align-items: center; justify-content: center;
-    padding: 20px;
-    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
-  }
-  .pay-overlay[hidden] { display: none; }
-  .pay-modal {
-    position: relative;
-    width: 100%; max-width: 400px;
-    background: var(--surface);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    padding: 32px 28px 28px;
-    text-align: center;
-  }
-  .pay-close {
-    position: absolute; top: 14px; right: 16px;
-    background: none; border: none; cursor: pointer;
-    font-size: 24px; line-height: 1; color: var(--ink-faint);
-    padding: 6px;
-  }
-  .pay-kicker { font-size: 12.5px; font-weight: 700; letter-spacing: 0.04em; color: var(--blue); }
-  .pay-title { font-size: 21px; font-weight: 800; color: var(--ink); margin: 10px 0 18px; }
-  .pay-box {
-    text-align: left;
-    background: var(--surface-2);
-    border-radius: var(--radius-md);
-    padding: 16px 18px;
-    margin-bottom: 18px;
-  }
-  .pay-row { font-size: 14px; color: var(--ink-soft); padding: 4px 0; }
-  .pay-row::before { content: "✓ "; color: var(--blue); font-weight: 700; }
-  .pay-price-row {
-    display: flex; justify-content: space-between; align-items: baseline;
-    border-top: 1px solid var(--line);
-    margin-top: 10px; padding-top: 12px;
-    font-size: 14px; color: var(--ink-soft);
-  }
-  .pay-price-row b { font-size: 22px; font-weight: 800; color: var(--ink); }
-  .pay-btn {
-    width: 100%; padding: 15px;
-    border: none; border-radius: 14px; cursor: pointer;
-    background: var(--blue); color: #fff;
-    font-family: inherit; font-size: 15.5px; font-weight: 700;
-  }
-  .pay-btn:disabled { opacity: 0.6; cursor: default; }
-  .pay-note { font-size: 12.5px; color: var(--ink-faint); margin-top: 12px; }
-  .pay-msg { font-size: 13px; color: #c23a3a; margin-top: 12px; min-height: 18px; }
-  .pay-emoji { font-size: 44px; }
-  .pay-desc { font-size: 14.5px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 16px; }
-  .pay-tip {
-    text-align: left;
-    background: var(--gold-bg);
-    border: 1px solid var(--gold-border);
-    border-radius: var(--radius-md);
-    padding: 13px 15px;
-    font-size: 13.5px; color: var(--ink-soft); line-height: 1.7;
-    margin-bottom: 18px;
-  }
-  .pay-tip b { color: var(--ink); }
-</style>
-<div class="pay-overlay" id="payOverlay" hidden>
-  <div class="pay-modal" role="dialog" aria-modal="true" aria-labelledby="payTitle">
-    <button class="pay-close" id="payClose" aria-label="닫기">×</button>
-    <div class="pay-step" id="payStep1">
-      <div class="pay-kicker">합격노트 · 텔레마케팅관리사 실기</div>
-      <h3 class="pay-title" id="payTitle">시작할 준비 되셨나요?</h3>
-      <div class="pay-box">
-        <div class="pay-row">기출연습 PDF — 10회 · 250문항</div>
-        <div class="pay-row">공부노트 PDF — 개념 13단원 + 부록</div>
-        <div class="pay-row">문제풀이 앱 — 평생 이용 · 기기 연동</div>
-        <div class="pay-price-row"><span>결제 금액</span><b>7,900원</b></div>
-      </div>
-      <button class="pay-btn" id="payGo">카카오페이로 결제하기</button>
-      <div class="pay-msg" id="payMsg"></div>
-      <div class="pay-note">결제가 끝나면 합격노트 앱이 바로 열려요</div>
-    </div>
-    <div class="pay-step" id="payStep2" hidden>
-      <div class="pay-emoji">🎉</div>
-      <h3 class="pay-title">결제가 완료됐어요!</h3>
-      <p class="pay-desc">고생 많으셨어요. 이제 바로 공부를 시작할 수 있어요.</p>
-      <div class="pay-tip">💡 앱에서 <b>설정</b> 버튼을 누르면 <b>홈 화면에 앱을 추가하는 방법</b>이 나와요. 추가해두면 다음부터 앱처럼 바로 열 수 있어요.</div>
-      <button class="pay-btn" id="payOpen">합격노트 앱 열기</button>
-      <div class="pay-note" id="payCount"></div>
-    </div>
-  </div>
-</div>
-
-<script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
-<script>
-  // 포트원 카카오페이 결제 (테스트 채널)
-  const PORTONE_STORE_ID = 'store-d3bf3548-20e0-4f0e-a151-1eeeecb99734';
-  const PORTONE_CHANNEL_KEY = 'channel-key-ec6b96f0-0942-48d3-b314-42ab2d20d753';
-  const APP_URL = 'https://27zh9nggj8-afk.github.io/telemarketing-exam/';
-
-  const payOverlay = document.getElementById('payOverlay');
-  const payStep1 = document.getElementById('payStep1');
-  const payStep2 = document.getElementById('payStep2');
-  const payGo = document.getElementById('payGo');
-  const payMsg = document.getElementById('payMsg');
-  const payCount = document.getElementById('payCount');
-  let countTimer = null;
-
-  function openPayModal(step){
-    payStep1.hidden = step !== 1;
-    payStep2.hidden = step !== 2;
-    payOverlay.hidden = false;
-    document.body.style.overflow = 'hidden';
-    if (step === 2) startCountdown();
-  }
-  function closePayModal(){
-    payOverlay.hidden = true;
-    document.body.style.overflow = '';
-    clearInterval(countTimer);
-  }
-  function startCountdown(){
-    let left = 7;
-    payCount.textContent = left + '초 후 자동으로 열려요';
-    clearInterval(countTimer);
-    countTimer = setInterval(() => {
-      left -= 1;
-      if (left <= 0){ clearInterval(countTimer); location.href = APP_URL; return; }
-      payCount.textContent = left + '초 후 자동으로 열려요';
-    }, 1000);
-  }
-
-  document.querySelectorAll('.js-pay').forEach(b => b.addEventListener('click', (ev) => {
-    ev.preventDefault();
-    payMsg.textContent = '';
-    openPayModal(1);
-  }));
-  document.getElementById('payClose').addEventListener('click', closePayModal);
-  payOverlay.addEventListener('click', (ev) => { if (ev.target === payOverlay) closePayModal(); });
-  document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && !payOverlay.hidden) closePayModal(); });
-  document.getElementById('payOpen').addEventListener('click', () => { location.href = APP_URL; });
-
-  payGo.addEventListener('click', async () => {
-    if (!window.PortOne){ payMsg.textContent = '결제 모듈을 불러오지 못했어요 — 새로고침 후 다시 시도해 주세요.'; return; }
-    payGo.disabled = true;
-    payGo.textContent = '결제창 여는 중…';
-    payMsg.textContent = '';
-    try {
-      const res = await PortOne.requestPayment({
-        storeId: PORTONE_STORE_ID,
-        channelKey: PORTONE_CHANNEL_KEY,
-        paymentId: 'tm' + Date.now() + Math.random().toString(36).slice(2, 8),
-        orderName: '텔레마케팅관리사 합격노트 3종',
-        totalAmount: 7900,
-        currency: 'CURRENCY_KRW',
-        payMethod: 'EASY_PAY',
-        redirectUrl: location.origin + location.pathname // 모바일은 결제 후 이 주소로 복귀
-      });
-      if (res && res.code){
-        payMsg.textContent = '결제가 완료되지 않았어요: ' + (res.message || res.code);
-        return;
-      }
-      openPayModal(2);
-    } catch (e) {
-      payMsg.textContent = '결제 실패: ' + (e && e.message ? e.message : e);
-    } finally {
-      payGo.disabled = false;
-      payGo.textContent = '카카오페이로 결제하기';
-    }
-  });
-
-  // 모바일에서 결제 후 리다이렉트로 돌아온 경우
-  (function(){
-    const p = new URLSearchParams(location.search);
-    if (!p.has('transactionType') && !p.has('paymentId')) return;
-    const failCode = p.get('code');
-    history.replaceState(null, '', location.pathname);
-    if (failCode){
-      openPayModal(1);
-      payMsg.textContent = '결제가 완료되지 않았어요: ' + (p.get('message') || failCode);
-    } else {
-      openPayModal(2);
-    }
-  })();
-</script>
 
 <script>
   // reveal on scroll
