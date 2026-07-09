@@ -658,6 +658,45 @@
     font-weight: 700;
     color: var(--ink-soft);
   }
+
+  /* ---------- mobile (900px 이하 전용 — 데스크톱 무변경) ---------- */
+  @media (max-width: 900px) {
+    body { word-break: keep-all; overflow-wrap: break-word; }
+
+    /* 히어로: 전부 중앙 정렬, 폰 목업은 아래 3종 소개와 중복이라 숨김 */
+    .hero-visual { display: none; }
+    .hero { text-align: center; }
+    .hero-title { margin-top: 8px; }
+    .hero-sub { margin-left: auto; margin-right: auto; }
+    .hero-stats { justify-content: center; margin-top: 26px; }
+    .hero-actions { margin-top: 34px; }
+
+    h2.section-title { text-align: center; }
+    p.section-lede { text-align: center; margin-left: auto; margin-right: auto; }
+
+    /* 3종 소개: 하나씩 카드로 분리, 제목 먼저 → 이미지 */
+    .feature-block, .feature-block.reverse {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 38px 22px;
+      margin-top: 56px;
+      box-shadow: var(--shadow);
+    }
+    .feature-block:first-of-type { margin-top: 48px; }
+    .feature-block .feature-text, .feature-block.reverse .feature-text { order: 1; text-align: center; }
+    .feature-block .feature-visual, .feature-block.reverse .feature-visual { order: 2; }
+    .feature-text p { margin-left: auto; margin-right: auto; }
+    .paper-stack { width: min(260px, 76%); }
+    .doc-pair { gap: 10px; align-items: flex-start; }
+    .doc-pair figure { width: calc(50% - 5px); max-width: 185px; }
+
+    .price-card { padding: 34px 22px; }
+    .final-cta { padding: 52px 22px; }
+  }
 </style>
 
 <div class="mobile-progress"><div class="mobile-progress-bar" id="mobileProgressBar"></div></div>
