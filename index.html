@@ -6,6 +6,7 @@
 <meta property="og:image" content="https://27zh9nggj8-afk.github.io/bJRBzW/og-image.png">
 <meta property="og:url" content="https://27zh9nggj8-afk.github.io/bJRBzW/">
 <meta property="og:type" content="website">
+<script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
 <style>
   @font-face {
     font-family: 'SUIT Variable';
@@ -644,7 +645,7 @@
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       합격노트
     </div>
-    <a class="nav-cta" href="https://open.kakao.com/o/sfMySMxi" target="_blank" rel="noopener">구매하기</a>
+    <a class="nav-cta buy-btn" href="#" role="button">구매하기</a>
   </div>
 </div>
 
@@ -655,7 +656,7 @@
     <p class="hero-sub">풀고, 이해하고, 외우기까지. 실기 준비에 필요한 전부.</p>
     <p class="hero-price">7,900원 · 한 번 결제로 평생 이용</p>
     <div class="hero-actions">
-      <a class="cta-pill" href="https://open.kakao.com/o/sfMySMxi" target="_blank" rel="noopener">구매하기</a>
+      <a class="cta-pill buy-btn" href="#" role="button">시작하기</a>
       <a class="text-link" href="#highlights">구성 살펴보기 <span class="chev">&rsaquo;</span></a>
     </div>
     <div class="hero-visual reveal">
@@ -779,8 +780,8 @@
         <div class="price-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>기출 연습 PDF</div>
       </div>
       <div class="price-actions">
-        <a class="cta-pill" href="https://open.kakao.com/o/sfMySMxi" target="_blank" rel="noopener">카카오톡 오픈채팅에서 구매하기</a>
-        <div class="price-foot">현재는 오픈채팅으로 문의·안내 후 전달드려요 · 카카오페이 결제는 준비 중입니다</div>
+        <a class="cta-pill buy-btn" href="#" role="button">7,900원 결제하고 바로 시작하기</a>
+        <div class="price-foot">카드 결제 후 바로 이용할 수 있어요 · 문의는 <a href="https://open.kakao.com/o/sfMySMxi" target="_blank" rel="noopener" style="color:inherit;">카카오톡 오픈채팅</a></div>
       </div>
     </div>
   </div>
@@ -792,7 +793,7 @@
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-q" type="button">결제는 어떻게 진행되나요?</button>
-        <div class="faq-a"><div class="faq-a-inner">카카오톡 오픈채팅으로 문의를 남기면 결제 방법과 이용 링크를 바로 안내드려요. 카카오페이 결제 연동은 준비 중이에요.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">"시작하기" 또는 "구매하기" 버튼을 누르면 카드 결제창이 열리고, 결제가 끝나면 바로 앱으로 이동해요. 결제에 문제가 있으면 <a href="https://open.kakao.com/o/sfMySMxi" target="_blank" rel="noopener">카카오톡 오픈채팅</a>으로 문의 주세요.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" type="button">로그인이나 회원가입이 필요한가요?</button>
@@ -882,4 +883,59 @@
       if (!wasOpen) item.classList.add('open');
     });
   });
+</script>
+<script>
+  // 포트원(PortOne) V2 결제 — 테스트모드 채널 키는 관리자콘솔(admin.portone.io) > 결제연동 > 연동 정보에서 발급
+  const PORTONE_STORE_ID = 'STORE_ID_HERE';       // 예: store-xxxxxxxx-xxxx-...
+  const PORTONE_CHANNEL_KEY = 'CHANNEL_KEY_HERE'; // 예: channel-key-xxxxxxxx-... (KPN 테스트 채널)
+  const APP_URL = 'https://27zh9nggj8-afk.github.io/telemarketing-exam/';
+  const KAKAO_URL = 'https://open.kakao.com/o/sfMySMxi';
+  const PAGE_URL = 'https://27zh9nggj8-afk.github.io/bJRBzW/';
+
+  function goToApp() { location.href = APP_URL + '?welcome=1'; }
+
+  async function requestPay() {
+    if (PORTONE_STORE_ID.indexOf('store-') !== 0) {
+      // 채널 키 미설정 상태 — 오픈채팅으로 안내
+      window.open(KAKAO_URL, '_blank', 'noopener');
+      return;
+    }
+    const paymentId = 'tm-' + (crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(36).slice(2));
+    try {
+      const response = await PortOne.requestPayment({
+        storeId: PORTONE_STORE_ID,
+        channelKey: PORTONE_CHANNEL_KEY,
+        paymentId: paymentId,
+        orderName: '합격노트 텔레마케팅관리사 실기 3종',
+        totalAmount: 7900,
+        currency: 'CURRENCY_KRW',
+        payMethod: 'CARD',
+        redirectUrl: PAGE_URL
+      });
+      if (response && response.code !== undefined) {
+        alert('결제에 실패했어요.\n' + (response.message || '잠시 후 다시 시도해주세요.'));
+        return;
+      }
+      goToApp();
+    } catch (e) {
+      alert('결제 중 오류가 발생했어요. 잠시 후 다시 시도해주세요.');
+    }
+  }
+
+  document.querySelectorAll('.buy-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => { e.preventDefault(); requestPay(); });
+  });
+
+  // 모바일 리다이렉트 방식 결제 결과 처리 (redirectUrl로 돌아온 경우)
+  (function () {
+    const q = new URLSearchParams(location.search);
+    if (!q.has('paymentId') && !q.has('code')) return;
+    const code = q.get('code');
+    history.replaceState(null, '', location.pathname);
+    if (code) {
+      alert('결제에 실패했어요.\n' + (q.get('message') || '잠시 후 다시 시도해주세요.'));
+    } else {
+      goToApp();
+    }
+  })();
 </script>
