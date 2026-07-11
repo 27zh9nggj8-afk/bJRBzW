@@ -886,8 +886,8 @@
 </script>
 <script>
   // 포트원(PortOne) V2 결제 — 테스트모드 채널 키는 관리자콘솔(admin.portone.io) > 결제연동 > 연동 정보에서 발급
-  const PORTONE_STORE_ID = 'STORE_ID_HERE';       // 예: store-xxxxxxxx-xxxx-...
-  const PORTONE_CHANNEL_KEY = 'CHANNEL_KEY_HERE'; // 예: channel-key-xxxxxxxx-... (KPN 테스트 채널)
+  const PORTONE_STORE_ID = 'store-d3bf3548-20e0-4f0e-a151-1eeeecb99734';
+  const PORTONE_CHANNEL_KEY = 'CHANNEL_KEY_HERE'; // KPN(한국결제네트웍스) 테스트 채널 키로 교체 (channel-key-...)
   const APP_URL = 'https://27zh9nggj8-afk.github.io/telemarketing-exam/';
   const KAKAO_URL = 'https://open.kakao.com/o/sfMySMxi';
   const PAGE_URL = 'https://27zh9nggj8-afk.github.io/bJRBzW/';
@@ -895,7 +895,7 @@
   function goToApp() { location.href = APP_URL + '?welcome=1'; }
 
   async function requestPay() {
-    if (PORTONE_STORE_ID.indexOf('store-') !== 0) {
+    if (PORTONE_CHANNEL_KEY.indexOf('channel-key-') !== 0) {
       // 채널 키 미설정 상태 — 오픈채팅으로 안내
       window.open(KAKAO_URL, '_blank', 'noopener');
       return;
