@@ -900,7 +900,8 @@
       window.open(KAKAO_URL, '_blank', 'noopener');
       return;
     }
-    const paymentId = 'tm-' + (crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(36).slice(2));
+    // KPN은 paymentId에 영문·숫자만 허용 (하이픈 등 특수문자 불가)
+    const paymentId = 'tm' + Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
     try {
       const response = await PortOne.requestPayment({
         storeId: PORTONE_STORE_ID,
@@ -918,7 +919,7 @@
       }
       goToApp();
     } catch (e) {
-      alert('결제 중 오류가 발생했어요. 잠시 후 다시 시도해주세요.');
+      alert('결제 중 오류가 발생했어요. 잠시 후 다시 시도해주세요.\n' + (e && e.message ? e.message : ''));
     }
   }
 
